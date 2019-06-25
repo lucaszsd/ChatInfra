@@ -12,6 +12,8 @@ public class client_frame extends javax.swing.JFrame
     ArrayList<String> users = new ArrayList();
     int port = 3000;
     Boolean isConnected = false;
+    byte[] server = {/*add ip*/};
+    InetAddress serverAddr;
     
     Socket websocket;
     BufferedReader reader;
@@ -235,7 +237,8 @@ public class client_frame extends javax.swing.JFrame
 
             try 
             {
-                websocket = new Socket(address, port);
+                serverAddr = InetAddress.getByAddress(server);
+                websocket = new Socket(serverAddr, port);
                 InputStreamReader streamreader = new InputStreamReader(websocket.getInputStream());
                 reader = new BufferedReader(streamreader);
                 writer = new PrintWriter(websocket.getOutputStream());
