@@ -38,29 +38,29 @@ public class Server extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        turnOnButton = new javax.swing.JButton();
+        turnOffButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        serverInfo = new javax.swing.JList<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        serverLog = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Ligar");
-        jButton1.setToolTipText("Ligar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        turnOnButton.setText("Ligar");
+        turnOnButton.setToolTipText("Ligar");
+        turnOnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                turnOnButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Desligar");
-        jButton2.setToolTipText("Desligar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        turnOffButton.setText("Desligar");
+        turnOffButton.setToolTipText("Desligar");
+        turnOffButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                turnOffButtonActionPerformed(evt);
             }
         });
 
@@ -69,23 +69,23 @@ public class Server extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(turnOnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                .addComponent(turnOffButton, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(turnOffButton, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+            .addComponent(turnOnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jList1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Server Info", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        serverInfo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Server Info", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        serverInfo.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Server IP: ", "Status: Off", "Users: 0", "User List:", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList1);
+        jScrollPane3.setViewportView(serverInfo);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -98,11 +98,11 @@ public class Server extends javax.swing.JFrame {
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
         );
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(1);
-        jTextArea1.setRows(1);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Server Log", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
-        jScrollPane1.setViewportView(jTextArea1);
+        serverLog.setEditable(false);
+        serverLog.setColumns(1);
+        serverLog.setRows(1);
+        serverLog.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Server Log", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jScrollPane1.setViewportView(serverLog);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,17 +127,17 @@ public class Server extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void turnOnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnOnButtonActionPerformed
         // TODO add your handling code here:
         Thread start = new Thread(new serverStart());
         start.start();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_turnOnButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void turnOffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnOffButtonActionPerformed
         // TODO add your handling code here:
         Disconnect();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_turnOffButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,21 +178,31 @@ public class Server extends javax.swing.JFrame {
             local = InetAddress.getLocalHost();
             if (User.equals("")) {
                 String[] listData = {"Server IP: " + local.getHostAddress(), "Status: On", "Users: 0", "User List: "};
-                jList1.setListData(listData);
-            } else {
-                String[] listData = {"Server IP: " + local.getHostAddress(), "Status: On", "Users: " + users.size(), "User List: \n"};
-                jList1.setListData(listData);
+                serverInfo.setListData(listData);
+            } else if (User.equalsIgnoreCase("--")){
+                String[] listData = {"Server IP: " + local.getHostAddress(), "Status: Off", "Users: " + users.size(), "User List: \n"};
+                serverInfo.setListData(listData);
                 for (int x = 0; x < users.size(); x++) {
                     String[] aux = new String[listData.length + 1];
                     System.arraycopy(listData, 0, aux, 0, listData.length);
                     aux[listData.length] = users.get(x);
-                    jList1.setListData(aux);
+                    serverInfo.setListData(aux);
                     listData = aux;
                 }
-                jTextArea1.append("-==================================-");
+            } else {
+                String[] listData = {"Server IP: " + local.getHostAddress(), "Status: On", "Users: " + users.size(), "User List: \n"};
+                serverInfo.setListData(listData);
+                for (int x = 0; x < users.size(); x++) {
+                    String[] aux = new String[listData.length + 1];
+                    System.arraycopy(listData, 0, aux, 0, listData.length);
+                    aux[listData.length] = users.get(x);
+                    serverInfo.setListData(aux);
+                    listData = aux;
+                }
+                serverLog.append("-==================================-" + "\n");
             }
         } catch (UnknownHostException ex) {
-            jTextArea1.append("Server status error!");
+            serverLog.append("Server status error!");
         }
         
         
@@ -203,9 +213,10 @@ public class Server extends javax.swing.JFrame {
             ServerSocket serverSocket = new ServerSocket(3000);
             if (serverSocket.isBound()) {
                 serverSocket.close();
-                jTextArea1.append("Disconnecting...");
+                serverLog.append("Disconnecting...");
+                setServerStatus("--");
             } else {
-                jTextArea1.append("Server already disconnected");
+                serverLog.append("Server already disconnected");
             }
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
@@ -223,7 +234,7 @@ public class Server extends javax.swing.JFrame {
             try {
                 ServerSocket serverSocket = new ServerSocket(3000);
                 InetAddress local = InetAddress.getLocalHost();
-                jTextArea1.append("------Connected------\n");
+                serverLog.append("------Connected------\n");
                 while (true) {
                     setServerStatus("");
                     Socket socket = serverSocket.accept();
@@ -235,7 +246,7 @@ public class Server extends javax.swing.JFrame {
                     //socket.getInputStream();
                 }
             } catch (IOException ex) {
-                jTextArea1.append("Conection error!\n");
+                serverLog.append("Conection error!\n");
             }
             
         }
@@ -267,7 +278,7 @@ public class Server extends javax.swing.JFrame {
             try {
                 while ((message = reader.readLine()) != null) {
                     data = message.split(":");
-                    jTextArea1.append(data[0] + "\n");
+                    serverLog.append(data[0] + "\n");
                     if (data[2].equals(connect)) {
                         userAdd(data[0]);
                         setServerStatus(data[0]);
@@ -276,7 +287,7 @@ public class Server extends javax.swing.JFrame {
                     } else if (data[2].equals(chat)) {
                         
                     } else {
-                        jTextArea1.append("Conection error!\n");
+                        serverLog.append("Conection error!\n");
                     }
                 }
             } catch (IOException ex) {
@@ -296,13 +307,13 @@ public class Server extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JList<String> serverInfo;
+    private javax.swing.JTextArea serverLog;
+    private javax.swing.JButton turnOffButton;
+    private javax.swing.JButton turnOnButton;
     // End of variables declaration//GEN-END:variables
 }
