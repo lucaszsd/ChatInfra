@@ -1,4 +1,3 @@
-package chat_server;
 
 import java.io.*;
 import java.net.*;
@@ -52,7 +51,7 @@ public class server_frame extends javax.swing.JFrame
 
                     if (data[2].equals(connect)) 
                     {
-                        tellEveryone((data[0] + ":" + data[1] + ":" + chat));
+                        //tellEveryone((data[0] + ":" + data[1] + ":" + chat));
                         userAdd(data[0]);
                     } 
                     else if (data[2].equals(disconnect)) 

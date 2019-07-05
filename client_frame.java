@@ -1,4 +1,3 @@
-package chat_client;
 
 import java.net.*;
 import java.io.*;

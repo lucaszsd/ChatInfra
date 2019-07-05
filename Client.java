@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package client.chat_infra;
 
 import java.io.*;
 import java.net.*;
@@ -22,7 +16,7 @@ public class Client extends javax.swing.JFrame {
     private int port = 3000;
     private Socket socket;
     private InetAddress serverAddr;
-    private byte[] server = {(byte)192, (byte) 168, 0, 101};
+    private byte[] server = {(byte)172, 20, 4, 102};
     PrintWriter writer;
     BufferedReader reader;
     ArrayList<String> users = new ArrayList();
@@ -338,8 +332,8 @@ public class Client extends javax.swing.JFrame {
         nome = userName.getText();
         
         try {
-            serverAddr = InetAddress.getLocalHost();
-            socket = new Socket("localhost", port);
+            serverAddr = InetAddress.getByAddress(server);
+            socket = new Socket(serverAddr, port);
             warningArea.setText("Conectando " + nome + "...");
             jLayeredPane1.setVisible(false);
             jLayeredPane2.setVisible(true);
@@ -456,7 +450,7 @@ public class Client extends javax.swing.JFrame {
                     data = stream.split(":");
                     if (data[2].equals(chat)) {
                         if (data[0].equalsIgnoreCase(nome)) {
-                            chatArea.setText(chatArea.getText() + "[VocÃª] " + data[1] + "\n");
+                            chatArea.setText(chatArea.getText() + "[Você] " + data[1] + "\n");
                             chatArea.setCaretPosition(chatArea.getDocument().getLength());
                         } else {
                             chatArea.setText(chatArea.getText() + "[" + data[0] + "] " + data[1] + "\n");
