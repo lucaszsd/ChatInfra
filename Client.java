@@ -16,7 +16,7 @@ public class Client extends javax.swing.JFrame {
     private int port = 3000;
     private Socket socket;
     private InetAddress serverAddr;
-    private byte[] server = {(byte)172, 20, 4, 102};
+    private byte[] server = {(byte)172, 20, 4, 95};
     PrintWriter writer;
     BufferedReader reader;
     ArrayList<String> users = new ArrayList();
@@ -271,7 +271,7 @@ public class Client extends javax.swing.JFrame {
                writer.flush(); // flushes the buffer
             } catch (Exception ex) {
                 chatArea.setText(msg);
-                //chatArea.append("A mensagem não foi enviada. \n");
+                //chatArea.append("A mensagem nÃ£o foi enviada. \n");
             }
             sendText.setText("");
             sendText.requestFocus();
@@ -431,7 +431,7 @@ public class Client extends javax.swing.JFrame {
                writer.println(nome + ":" + sendText.getText() + ":" + "Chat");
                writer.flush(); // flushes the buffer
             } catch (Exception ex) {
-                System.out.println("A mensagem não foi enviada. \n");
+                System.out.println("A mensagem nÃ£o foi enviada. \n");
             }
             sendText.setText("");
             sendText.requestFocus();
@@ -450,7 +450,7 @@ public class Client extends javax.swing.JFrame {
                     data = stream.split(":");
                     if (data[2].equals(chat)) {
                         if (data[0].equalsIgnoreCase(nome)) {
-                            chatArea.setText(chatArea.getText() + "[Voc�] " + data[1] + "\n");
+                            chatArea.setText(chatArea.getText() + "[Você] " + data[1] + "\n");
                             chatArea.setCaretPosition(chatArea.getDocument().getLength());
                         } else {
                             chatArea.setText(chatArea.getText() + "[" + data[0] + "] " + data[1] + "\n");
